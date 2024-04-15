@@ -1,0 +1,40 @@
+
+Dependency Injection, and auto-wiring.
+Step 01:
+	Spring Framework cung cấp những tính năng quan trọng nhất cần thiết để xây dựng các ứng dụng dễ bảo trì
+	spring và spring boot cải thiện năng suất, làm nhiều hơn với ít code  hơn
+
+Step 02-04: Tạo Spring Framework Project
+Step 05: Loose Coupling và Tight Coupling
+	Tightly Coupled:liên kết chặt chẽ, khi muốn thay đổi 1 thành phần thì phải sửa gần như toàn bộ code -> phức tạp
+	Loose Coupling :Liên kết lỏng lẻo
+	+ Có thể sử dụng interface của java (make app loosely coupled)
+	+ Sử dụng Spring Framework
+Step 07-10: Java Spring Bean
+	+Spring framework để tạo các đối tượng , quản lý, wiring các đối tượng
+
+
+	+ Sẽ có 1 class @Configuration  (bằng cách thêm chú thích "annotation " @Configuration  quản lý các đối tượng là Bean trong đó
+	+ Ta có thể custom name của bean theo @Bean(name="custom") do đó có thể dùng tên của Bean hoặc loại của nó (tên phương thức của lớp được gọi)
+
+
+	+ Khi muốn sử dụng Spring context(cung cấp 1 môi trường chạy cho các Bean) với class @Configuration thì sẽ sử dụng class AnnotationConfig
+ 
+Step 10: Auto Wiring in Java Configuration (tạo mối liên hệ giữa các Bean với nhau)
+	+ Tái sử dụng các bean hay còn gọi là call Method, sử dụng các method của các Bean đã tạo
+	+ Hoặc sử dụng tham số (chính là tên của Bean)
+
+Step 12: Spring container: quản lý các Spring Beans
+			   1.BeanFactory: Basic Spring container (hầu như không được sử dụng)
+		  	   2. ApplicationContext: dành cho doanh nghiệp, web,...
+
+Step 13: So sánh java bean, pojo, Spring bean:
+Java Bean : Nó có một hàm tạo mặc định công khai,một hàm tạo không có đối số, Nó cho phép truy cập vào các thuộc tính của nó bằng cách sử dụng ,phương thức getter và setter, và nó cần implement với Java IO serializable
+Pojo : Bất kỳ đối tượng java nào cũng là Pojo
+Spring bean: bất cứ đối tượng java nào được Spring quản lý
+
+
+Step 14: Spring Framework Bean Auto Wiring (với trường hợp có nhiều Bean tương tự nhau ví dụ như 2 bean nhưng đều là địa chỉ nhưng khác nhau)
+	+Primary:Khi có nhiều bean cùng loại và một trong số chúng được đánh dấu là @Primary, Spring sẽ ưu tiên chọn bean đó để autowire nếu không có @Qualifier nào được chỉ định.
+	+Qualifier: được sử dụng để chỉ định rõ ràng rằng một bean cụ thể nào sẽ được sử dụng khi có nhiều bean cùng loại.
+
