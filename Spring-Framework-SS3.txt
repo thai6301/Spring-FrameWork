@@ -1,0 +1,19 @@
+Step01: Getting Spring Framework to Create and Manage Your Java Objects
+
+	Sử dụng Spring Framework để tự tạo các đối tượng cho mình bằng cách thêm chú thích @Component 	vào các class mà chúng ta cần tự động tạo bean và cần phải có chú thích @ComponentScan	("namePackage") để Spring có thể scan đúng pagekage chúng ta cần tự động tạo bean
+
+Step 02 : Exploring Primary and Qualifier Annotations for Spring Components
+
+	Khi có nhiều class được chọn để tự động tạo bean thì có 2 lựa chọn sau:
+	+Primary: Spring sẽ ưu tiên chọn class này để tạo bean và chạy trong ứng dụng nếu không có 	@Qualifier nào được chỉ định.
+	+Qualifier: được sử dụng để chỉ định rõ ràng rằng một class cụ thể nào sẽ được sử dụng
+
+Step 04: Exploring Spring Framework - Different Types of Dependency Injection
+	Dependency Injection (DI) là một mẫu thiết kế phần mềm được sử dụng trong lập trình hướng đối 	tượng để giảm sự phụ thuộc giữa các thành phần của hệ thống. Trong DI, các đối tượng không tạo 	ra các phụ thuộc của chính mình mà thay vào đó chấp nhận chúng từ bên ngoài.
+	Có 3 loại sau:
+
+	+ Constructor-based: Đây là phương thức phổ biến nhất của DI, trong đó các phụ thuộc được 			     chuyển vào thông qua constructor của đối tượng mà không cần sử dụng 			     @Autowired chỉ cần 1 hàm tạo
+
+	+ Setter-based : Trong Setter Injection, các phụ thuộc được chuyển vào thông qua các phương 			 thức setter của đối tượng sau khi nó được tạo ra và bằng cách thêm các 			 	 chú thích @Autowired trên các phương thức setter của các phụ thuộc
+
+	+ Field : Không có bất kỳ setter hoặc hàm tạo nào, sự phụ thuộc được đưa vào bằng cách thêm các 		  chú thích @Autowired trên các phụ thuộc thì Spring sẽ tự động thực hiện việc field 		  	  injection
