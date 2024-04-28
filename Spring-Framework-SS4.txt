@@ -1,0 +1,46 @@
+Section 4: Các tính năng nâng cao của Spring Framework
+
+*Lazy Initialization:
++Default initialization for Spring Beans: Eager
++Eager initialization is recommended:
+	-Errors in the configuration are discovered immediately at application startup
++However, you can configure beans to be lazily initialized using Lazy annotation:
+	-NOT recommended (AND) Not frequently used
++Lazy annotation:
+	-Can be used almost everywhere @Component and @Bean are used 
+	-Lazy-resolution proxy will be injected instead of actual dependency 
+	-Can be used on Configuration class:
+		All @Bean methods within the @Configuration will be lazily initialized. 
+
+
++ Eager initialization: Mặc định Spring sẽ khởi tạo các bean ngay khi khởi động ứng dụng -> phát hiện lỗi trong Configuration
++ @Lazy annotation: Annotation này có thể được sử dụng gần như ở bất kỳ nơi nào @Component và @Bean được sử dụng. Khi một bean được đánh dấu là @Lazy, Spring sẽ không khởi tạo bean đó ngay khi ứng dụng bắt đầu, mà thay vào đó, nó sẽ tạo ra một proxy và chỉ khởi tạo bean thực sự khi nó được yêu cầu lần đầu tiên. Annotation @Lazy cũng có thể được sử dụng trên các lớp Configuration, trong trường hợp đó, tất cả các phương thức @Bean bên trong @Configuration sẽ được khởi tạo chậm chạp.
+
+*Lazy initialization với Eager initialization
+Nên sử dụng Lazy initialization khi có 1 Bean rất hiếm khi được sử dụng trong ứng dụng Vì vậy, thay vì tải Bean đó khi khởi động, sẽ tải nó khi nó được sử dụng cụ thể.
+
+*Bean Scopes - Prototype và Singleton
+
++Prototype: Mỗi lần bean với scope prototype được yêu cầu, container sẽ tạo ra một instance mới của bean đó. Điều này có nghĩa là mỗi lần bạn yêu cầu bean, bạn sẽ nhận được một instance mới.
+
++Singleton: Một bean với scope singleton sẽ chỉ có một instance duy nhất trong toàn bộ ứng dụng Spring. Mỗi lần bean được yêu cầu, container sẽ trả về instance đã tồn tại hoặc tạo ra một instance mới (nếu nó chưa được tạo trước đó).
+
+
+Spring singleton và Java singleton có thể có nghĩa giống nhau nếu bạn chỉ chạy một bộ chứa IoC mùa xuân cho mỗi JVM. Tuy nhiên, nếu bạn đang chạy nhiều bộ chứa IoC mùa xuân trong một JVM, thì các singleton mùa xuân khác với các singleton Java. Thông thường mọi người không chạy nhiều bộ chứa IoC mùa xuân mỗi JVM.
+
+*PostConstruct and PreDestroy
++ PostConstruct: Annotation @PostConstruct được sử dụng để đánh dấu một phương thức trong một bean mà bạn muốn thực thi ngay sau khi bean được khởi tạo và tất cả các phụ thuộc của nó đã được thiết lập.
+
++ PreDestroy: Annotation @PreDestroy được sử dụng để đánh dấu một phương thức trong một bean mà bạn muốn thực thi trước khi bean bị huỷ. Thường thì các thao tác dọn dẹp, như đóng kết nối cơ sở dữ liệu, giải phóng tài nguyên hoặc dừng các dịch vụ bên ngoài, có thể được thực hiện trong phương thức được đánh dấu bởi @PreDestroy.
+
+*Jakarta CDI: không gì khác ngoài những lựa chọn thay thế cho chú thích Spring.
+
+*Java Spring XML Configuration
+Được sử dụng trước khi Java Annotations và ngày nay rất ít được sử dụng, tuy nhiên một số mã nguồn cũ vẫn sử dụng nó
+
+*Các chú thích khuôn mẫu khác của Spring (Component và một số chú thích khác)
+@Repository : được sử dụng để đánh dấu các lớp là các thành phần của tầng truy cập dữ liệu
+@Controller:  được sử dụng để đánh dấu các lớp là các thành phần điều khiển
+@Service : Chúng thường được sử dụng để chứa các phương thức thực hiện các nghiệp vụ cụ thể và được gọi từ các lớp điều khiển hoặc từ các thành phần khác của ứng dụng.
+
+
