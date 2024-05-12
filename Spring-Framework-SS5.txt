@@ -1,0 +1,19 @@
+*Build a simple REST API using Spring Boot
+Sử dụng chú thích @RestController trong class Controller và muốn map đến 1 URL thì sử dụng @RequestMapping
+
+*Mục tiêu của Spring Boot: Giúp xây dụng các ứng dụng nhanh chóng
+
+*Spring Boot Starter Projects
+*Spring Boot Auto Configuration
+*Spring Boot DevTools would automatically trigger a restart of the application,
+
+*Managing App. Configuration using Profiles :
+các ứng dụng có môi trường khác nhau có thể cần cấu hình khác nhau do đó ta có thể sử dụng Profile, có thể tạo nhiều profiles theo số môi trường khác nhau và có thể kích hoạt nó bằng spring.profiles.active trong file, khi không sử dụng bất kỳ hồ sơ nào, ứng dụng sử dụng các thuộc tính mặc định được cấu hình trong application.properties.
+
+*ConfigurationProperties: sử dụng khi có một cấu hình ứng dụng phức tạp, tạo một Spring component và chú thích nó bằng @ConfigurationProperties, và có bao nhiêu thuộc tính tùy theo ứng dụng 
+
+*Embedded Servers: 
+All that you need is Java installed.
+
+*Actuator: thu thập thông tin dựa vào số endpoint ta kích hoạt trong file cấu hình "management.endpoints.web.exposure.include=*
+management.endpoints.web.exposure.include=health, metrics" 
